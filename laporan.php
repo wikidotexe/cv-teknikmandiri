@@ -2,7 +2,7 @@
 // Memasukkan file connection.php untuk koneksi database dan fungsi getContactFormData
 include('connection.php');
 
-// Memanggil fungsi getContactFormData untuk mendapatkan data
+// Memanggil fungsi getContactFormData untuk mendapatkan data dari connection
 $result = getContactFormData();
 ?>
 

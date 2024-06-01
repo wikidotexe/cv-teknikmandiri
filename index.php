@@ -154,7 +154,7 @@
     <!-- Contact -->
     <section class="contact" id="contact">
     <h1 class="heading">Contact</h1>
-    <form id="contactForm" action="connection.php" method="POST">
+    <form id="contactForm" action="connection.php" method="POST"> <!-- Action request ke connection -->
         <span>Nama</span>
         <input type="text" name="name" placeholder="Masukkan nama anda" class="box" required>
         <span>Email</span>

@@ -4,7 +4,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'contact_db') or die('Connection
 
 function getContactFormData() {
     global $conn;
-    $sql = "SELECT * FROM contact_form";
+    $sql = "SELECT * FROM contact_form"; // mengambil dari table contact_form database
     $result = mysqli_query($conn, $sql);
     if (!$result) {
         die('Query Error: ' . mysqli_error($conn));
@@ -12,6 +12,7 @@ function getContactFormData() {
     return $result;
 }
 
+// Query untuk meminta akses dari database
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -31,10 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         try {
             $mail->isSMTP();
-            $mail->Host = 'sandbox.smtp.mailtrap.io';
+            $mail->Host = 'sandbox.smtp.mailtrap.io'; // server dari mailtrap
             $mail->SMTPAuth = true;
-            $mail->Username = '8f1a25a654baf6';
-            $mail->Password = '90987ab54427b6';
+            $mail->Username = '8f1a25a654baf6'; // API username dari mailtrap
+            $mail->Password = '90987ab54427b6'; // API password dari mailtrap
             $mail->Port = 587;
             $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
 
