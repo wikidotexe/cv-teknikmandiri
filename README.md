@@ -1,4 +1,7 @@
 
+![image](https://github.com/user-attachments/assets/6017d36d-e25f-4c1b-a4fa-dbadc236f348)
+
+
 # Landing Page / Company Profile Website
 
 **Praktikum Semester 6 - Pemrograman Visual**  
