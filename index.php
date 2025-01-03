@@ -1,3 +1,8 @@
+<?php
+  // Memanggil file connection.php untuk koneksi database jika diperlukan
+  include 'connection.php';
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -45,7 +50,7 @@
             <p>
               Perusahaan yang berdiri sejak tahun 2013 dan bergerak di bidang pemasangan baru dan perawatan mekanikal, elektrikal, dan renovasi tempat usaha dan kantor. Kami menyediakan layanan lengkap dan terpadu untuk memastikan
               operasional kantor Anda berjalan lancar dan efisien. Dengan tim profesional berpengalaman dan teknologi terkini, kami siap membantu Anda dalam pemeliharaan rutin, perbaikan sistem mekanikal dan elektrikal, serta renovasi ruang
-              kerja sesuai kebutuhan spesifik Anda. Komitmen kami adalah memberikan hasil terbaik dengan fokus pada kualitas, keamanan, dan kepuasan pelanggan
+              kerja sesuai kebutuhan spesifik Anda. Komitmen kami adalah memberikan hasil terbaik dengan fokus pada kualitas, keamanan, dan kepuasan pelanggan
             </p>
             <a href="#contact" class="link-btn">Contact Here</a>
           </div>
@@ -192,7 +197,7 @@
         <div class="box">
           <i class="fas fa-clock"></i>
           <h3>Working</h3>
-          <p>After Ofice, Day Night or Weekend</p>
+          <p>After Office, Day Night or Weekend</p>
         </div>
         <div class="box">
           <i class="fas fa-envelope"></i>
