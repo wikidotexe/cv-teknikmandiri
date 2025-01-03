@@ -1,6 +1,18 @@
 <?php
+// Autoload Composer
+require __DIR__ . '/vendor/autoload.php';
+
+// Load .env file
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 // Menghubungkan ke database
-$conn = mysqli_connect('server.blp.synology.me', 'root', '@Thebest2024', 'contact_db') or die('Connection failed: ' . mysqli_connect_error());
+$conn = mysqli_connect(
+    $_ENV['DB_HOST'], 
+    $_ENV['DB_USER'], 
+    $_ENV['DB_PASSWORD'], 
+    $_ENV['DB_NAME']
+) or die('Connection failed: ' . mysqli_connect_error());
 
 function getContactFormData() {
     global $conn;
@@ -32,12 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         try {
             $mail->isSMTP();
-            $mail->Host = 'sandbox.smtp.mailtrap.io'; // server dari mailtrap
+            $mail->Host = $_ENV['MAIL_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username = '8f1a25a654baf6'; // API username dari mailtrap
-            $mail->Password = '90987ab54427b6'; // API password dari mailtrap
-            $mail->Port = 587;
-            $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Username = $_ENV['MAIL_USERNAME'];
+            $mail->Password = $_ENV['MAIL_PASSWORD'];
+            $mail->Port = $_ENV['MAIL_PORT'];
+            $mail->SMTPSecure = $_ENV['MAIL_ENCRYPTION'];
 
             // Atur pengirim email
             $mail->setFrom($email);
@@ -46,16 +58,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Isi email
             $mail->isHTML(true);
-            // Atur subjek
             $mail->Subject = 'Formulir Kontak';
-            // Atur body
             $mail->Body = "
                 <p>Nama: $name</p>
                 <p>Email: $email</p>
                 <p>Nomor Telepon: $number</p>
                 <p>Tanggal: $date</p>
             ";
-            // Atur versi text untuk email
             $mail->AltBody = "
                 Nama: $name\n
                 Email: $email\n
@@ -63,7 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 Tanggal: $date\n
             ";
 
-            // Kirim email
             $mail->send();
             echo 'Pesan telah terkirim dan data tersimpan!';
         } catch (PHPMailer\PHPMailer\Exception $e) {
