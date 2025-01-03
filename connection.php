@@ -1,6 +1,6 @@
 <?php
 // Menghubungkan ke database
-$conn = mysqli_connect('blp.synology.me', 'root', '@Thebest2024', 'contact_form') or die('Connection failed: ' . mysqli_connect_error());
+$conn = mysqli_connect('blp.synology.me', 'root', '@Thebest2024', 'contact_db') or die('Connection failed: ' . mysqli_connect_error());
 
 function getContactFormData() {
     global $conn;
