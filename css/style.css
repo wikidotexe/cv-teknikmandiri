@@ -87,6 +87,10 @@ section {
   font-weight: bold;
 }
 
+.logo .highlight {
+  color: black;
+}
+
 .header .nav a {
   margin: 0 1rem;
   font-size: 1.7rem;
@@ -161,6 +165,10 @@ section {
   font-size: 1.5rem;
   color: var(--light-color);
   line-height: 2;
+}
+
+.rounded-image {
+  border-radius: 5px;
 }
 
 .services {
